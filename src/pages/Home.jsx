@@ -54,7 +54,7 @@ function Home() {
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
-      <form onSubmit={handleSearch} className="flex gap-3 mb-6">
+      <form onSubmit={handleSearch} className="flex gap-3 mb-6 max-sm:flex-col">
         <input
           type="text"
           placeholder="Search your Character Name"
