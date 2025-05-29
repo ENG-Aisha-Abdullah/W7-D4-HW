@@ -26,16 +26,31 @@ function Home() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`${API_URL}/${id}`).then(() => {
-      setCharacters((items) => items.filter((character) => character.id !== id));
-      Swal.fire({
-        icon: "success",
-        title: "Character Deleted ",
-        showConfirmButton: false,
-        timer: 2000,
+  Swal.fire({
+    title: "Are you sure?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#fe9a00",
+    confirmButtonText: "Yes, delete it",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios.delete(`${API_URL}/${id}`).then(() => {
+        setCharacters((items) =>
+          items.filter((character) => character.id !== id)
+        );
+        Swal.fire({
+          icon: "success",
+          title: "Deleted",
+          text: "Character has been deleted",
+          timer: 2000,
+          showConfirmButton: false,
+        });
       });
-    });
-  };
+    }
+  });
+};
+
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
