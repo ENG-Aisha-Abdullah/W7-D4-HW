@@ -81,7 +81,7 @@ function Home() {
               <img
                 src={character.image}
                 alt={character.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-60"
               />
               <div className="p-4">
                 <h2 className="text-xl font-bold text-gray-800">
